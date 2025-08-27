@@ -9,9 +9,9 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             @php
                 $teamMembers = [
-                    ['name'=>'Alice Johnson','role'=>'Lead Developer','img'=>'https://i.pravatar.cc/150?img=1'],
-                    ['name'=>'Bob Smith','role'=>'Cybersecurity Analyst','img'=>'https://i.pravatar.cc/150?img=2'],
-                    ['name'=>'Carol White','role'=>'Project Manager','img'=>'https://i.pravatar.cc/150?img=3'],
+                    ['name'=>'Alice Johnson','role'=>'Lead Developer','img'=>''],
+                    ['name'=>'Bob Smith','role'=>'Cybersecurity Analyst','img'=>''],
+                    ['name'=>'Carol White','role'=>'Project Manager','img'=>''],
                 ];
             @endphp
 

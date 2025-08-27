@@ -9,9 +9,9 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             @php
                 $posts = [
-                    ['title'=>'Cybersecurity Trends 2025','excerpt'=>'Discover the top cybersecurity trends to watch this year.','img'=>'https://i.pravatar.cc/300?img=4'],
-                    ['title'=>'Building Modern Web Apps','excerpt'=>'A guide to using Laravel and Tailwind for modern web development.','img'=>'https://i.pravatar.cc/300?img=5'],
-                    ['title'=>'Digital Forensics Explained','excerpt'=>'Learn the essentials of digital forensics in enterprise environments.','img'=>'https://i.pravatar.cc/300?img=6'],
+                    ['title'=>'Cybersecurity Trends 2025','excerpt'=>'Discover the top cybersecurity trends to watch this year.','img'=>''],
+                    ['title'=>'Building Modern Web Apps','excerpt'=>'A guide to using Laravel and Tailwind for modern web development.','img'=>''],
+                    ['title'=>'Digital Forensics Explained','excerpt'=>'Learn the essentials of digital forensics in enterprise environments.','img'=>''],
                 ];
             @endphp
 

@@ -206,7 +206,7 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl md:text-4xl font-bold mb-6" data-aos="fade-up">Ready to Start Your Project?</h2>
             <p class="text-xl mb-8" data-aos="fade-up" data-aos-delay="100">Contact us today to discuss how we can help with your cybersecurity, development, or research needs</p>
-            <a href="#contact" class="inline-block px-8 py-3 bg-white text-primary font-medium rounded-lg hover:bg-blue-50 transition" data-aos="fade-up" data-aos-delay="200">Get in Touch</a>
+            <a href="{{route('contact')}}" class="inline-block px-8 py-3 bg-white text-primary font-medium rounded-lg hover:bg-green-600 transition" data-aos="fade-up" data-aos-delay="200">Get in Touch</a>
         </div>
     </section>
 
@@ -260,7 +260,7 @@
 
 <!-- Floating CTA Buttons -->
 <div class="fixed bottom-6 right-6 flex flex-col space-y-4 z-50">
-    <a href="#contact" class="floating-cta bg-primary text-white px-5 py-3 rounded-full shadow-lg transform hover:scale-105 transition flex items-center space-x-2">
+    <a href="#contact" class="floating-cta bg-blue-600 text-white px-5 py-3 rounded-full shadow-lg transform hover:scale-105 transition flex items-center space-x-2">
         <i class="fas fa-envelope"></i>
         <span>Contact Us</span>
     </a>

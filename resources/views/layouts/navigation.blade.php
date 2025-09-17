@@ -16,7 +16,7 @@
                     {{ __('Dashboard') }}
                 </x-nav-link>
                 <x-nav-link :href="route('home')" class="text-yellow-600 hover:text-green-500 transition">
-                        Home
+                    Home
                 </x-nav-link>
                 <x-nav-link :href="route('services')" class="text-yellow-600 hover:text-green-500 transition">
                     Services
@@ -28,7 +28,7 @@
                     Contact
                 </x-nav-link>
 
-                <!-- Dropdown Example -->
+                <!-- Dropdown Navigation -->
                 <div x-data="{ openDropdown: false }" class="relative">
                     <button @mouseenter="openDropdown = true" @mouseleave="openDropdown = false"
                             class="inline-flex items-center text-yellow-600 hover:text-green-500 transition font-medium">
@@ -105,9 +105,25 @@
     <div x-show="open" @click.away="open = false" class="lg:hidden bg-white border-t border-gray-100 shadow-md">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">Dashboard</x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('home')">Home</x-responsive-nav-link>
             <x-responsive-nav-link :href="route('services')">Services</x-responsive-nav-link>
             <x-responsive-nav-link :href="route('portfolio')">Portfolio</x-responsive-nav-link>
             <x-responsive-nav-link :href="route('contact')">Contact</x-responsive-nav-link>
+            
+            <!-- Mobile Dropdown Navigation -->
+                <div x-data="{ openMore: false }" class="border-t border-gray-200">
+                    <button @click="openMore = !openMore" class="w-full flex items-center justify-between px-4 py-2 text-yellow-600 hover:text-green-500">
+                            More
+                        <svg class="h-4 w-4 transform" :class="{'rotate-180': openMore}" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                        </svg>
+                    </button>
+                    <div x-show="openMore" x-transition class="pl-6 space-y-1">
+                        <x-responsive-nav-link :href="route('team')">Our Team</x-responsive-nav-link>
+                        <x-responsive-nav-link :href="route('blog')">Blog</x-responsive-nav-link>
+                        <x-responsive-nav-link :href="route('careers')">Careers</x-responsive-nav-link>
+                    </div>
+                </div>
         </div>
         @auth
             <div class="pt-4 pb-1 border-t border-gray-200">

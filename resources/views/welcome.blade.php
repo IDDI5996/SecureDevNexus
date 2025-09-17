@@ -170,10 +170,10 @@
             </div>
 
             <div class="flex justify-center mb-12 space-x-4" data-aos="fade-up" data-aos-delay="200">
-                <button class="filter-btn bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition" data-filter="all">All</button>
-                <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition" data-filter="web">Web</button>
-                <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition" data-filter="cyber">Cybersecurity</button>
-                <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition" data-filter="research">Research</button>
+                <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-blue-600 transition" data-filter="all">All</button>
+                <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-blue-600 transition" data-filter="web">Web</button>
+                <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-blue-600 transition" data-filter="cyber">Cybersecurity</button>
+                <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-blue-600 transition" data-filter="research">Research</button>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
@@ -260,15 +260,15 @@
 
 <!-- Floating CTA Buttons -->
 <div class="fixed bottom-6 right-6 flex flex-col space-y-4 z-50">
-    <a href="#contact" class="floating-cta bg-blue-600 text-white px-5 py-3 rounded-full shadow-lg transform hover:scale-105 transition flex items-center space-x-2">
+    <a href="{{route('contact')}}" class="floating-cta bg-blue-600 text-white px-5 py-3 rounded-full shadow-lg transform hover:scale-105 transition flex items-center space-x-2">
         <i class="fas fa-envelope"></i>
         <span>Contact Us</span>
     </a>
-    <a href="#services" class="floating-cta bg-green-600 text-white px-5 py-3 rounded-full shadow-lg transform hover:scale-105 transition flex items-center space-x-2">
+    <a href="{{route('services')}}" class="floating-cta bg-green-600 text-white px-5 py-3 rounded-full shadow-lg transform hover:scale-105 transition flex items-center space-x-2">
         <i class="fas fa-rocket"></i>
         <span>Get Quote</span>
     </a>
-    <a href="#portfolio" class="floating-cta bg-yellow-500 text-white px-5 py-3 rounded-full shadow-lg transform hover:scale-105 transition flex items-center space-x-2">
+    <a href="{{route('portfolio')}}" class="floating-cta bg-yellow-500 text-white px-5 py-3 rounded-full shadow-lg transform hover:scale-105 transition flex items-center space-x-2">
         <i class="fas fa-lightbulb"></i>
         <span>Our Work</span>
     </a>

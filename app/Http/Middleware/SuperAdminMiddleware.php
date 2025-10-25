@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
 
-class AdminMiddleware
+class SuperAdminMiddleware
 {
     /**
      * Handle an incoming request.
@@ -23,11 +23,12 @@ class AdminMiddleware
 
         $user = Auth::user();
         
-        // Check if user has admin role
-        if ($user->role === 'admin') {
+        // Check if user has super_admin role
+        if ($user->role === 'super_admin') {
             return $next($request);
         }
-    
-        abort(403, 'Unauthorized'); // Show 403 if not admin
+        
+        abort(403, 'Unauthorized'); // Show 403 if not super admin
     }
+    
 }

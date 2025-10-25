@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Service;
 
 class ServiceController extends Controller
 {
     public function index()
     {
-        return view('services.index');
+        $services = Service::all();
+        return view('services.index', compact('services'));
     }
 
-    public function show($service)
+    public function show($id)
     {
-        return view("services.$service");
+        $service = Service::findOrFail($id);
+        return view('services.show', compact('service'));
     }
 }

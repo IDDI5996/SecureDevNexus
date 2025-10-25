@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\PortfolioItem;
 
 class PortfolioController extends Controller
 {
     public function index()
     {
-        return view('portfolio');
+        $portfolio = PortfolioItem::all();
+        return view('portfolio', compact('portfolio'));
     }
 
-    public function show($project)
+    public function show($id)
     {
-        return view("portfolio.$project");
+        $project = PortfolioItem::findOrFail($id);
+        return view('portfolio.show', compact('project'));
     }
 }

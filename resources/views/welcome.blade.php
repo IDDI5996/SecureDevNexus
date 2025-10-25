@@ -107,99 +107,69 @@
                 </p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                @php
-                    $services = [
-                        ['icon'=>'fa-shield-alt','title'=>'Cybersecurity','desc'=>'Comprehensive security solutions including penetration testing, vulnerability assessment, and security audits.'],
-                        ['icon'=>'fa-code','title'=>'Web Development','desc'=>'Modern, responsive websites and web applications built with Laravel, Tailwind CSS, and other advanced technologies.'],
-                        ['icon'=>'fa-server','title'=>'System Administration','desc'=>'Professional system management, maintenance, and optimization services for businesses of all sizes.'],
-                        ['icon'=>'fa-search','title'=>'Digital Forensics','desc'=>'Comprehensive digital investigation services to uncover and analyze digital evidence for various purposes.'],
-                        ['icon'=>'fa-chart-line','title'=>'Research Assistance','desc'=>'Specialized research analysis and support for health faculty and other academic programs.'],
-                        ['icon'=>'fa-laptop-medical','title'=>'Health IT Solutions','desc'=>'Technology solutions tailored for healthcare professionals and medical research initiatives.'],
-                    ];
-                @endphp
-
                 @foreach($services as $service)
-                <div class="service-card bg-white rounded-xl p-8 shadow-lg text-center" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
-                    <div class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center mb-6 mx-auto">
-                        <i class="fas {{ $service['icon'] }} text-white text-2xl service-icon"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ $service['title'] }}</h3>
-                    <p class="text-gray-600 mb-4">{{ $service['desc'] }}</p>
+            <div class="service-card bg-white rounded-xl p-8 shadow-lg text-center" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
+                <div class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center mb-6 mx-auto">
+                     <i class="fas {{ $service->icon }} text-white text-2xl service-icon"></i>
                 </div>
-                @endforeach
+                 <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ $service->title }}</h3>
+                 <p class="text-gray-600 mb-4">{{ $service->description }}</p>
+            </div>
+            @endforeach
             </div>
         </div>
     </section>
 
     <!-- Team Section -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-aos="fade-up">Our Expert Team</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Meet the professionals behind our success</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                @php
-                    $team = [
-                        ['name'=>'Iddi B. Hemedi','role'=>'BSc. Cybersecurity & Digital Forensics Engineering','bio'=>'Expert in system design, web development, cybersecurity, and digital forensics.','photo'=>'team1.jpg'],
-                        ['name'=>'Joseph P. Ndamgoba','role'=>'BSc. Information Systems','bio'=>'Specialist in information systems, web development, and research analysis.','photo'=>'team2.jpg'],
-                        ['name'=>'Colneli','role'=>'Technology Specialist','bio'=>'Experienced in system administration, computer maintenance, and technical support.','photo'=>'team3.jpg'],
-                    ];
-                @endphp
-
-                @foreach($team as $member)
-                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden text-center p-6 card-hover" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
-                    <img src="{{ asset('images/'.$member['photo']) }}" alt="{{ $member['name'] }}" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
-                    <h3 class="text-2xl font-bold text-gray-900">{{ $member['name'] }}</h3>
-                    <p class="text-primary font-medium mb-2">{{ $member['role'] }}</p>
-                    <p class="text-gray-600">{{ $member['bio'] }}</p>
-                </div>
-                @endforeach
-            </div>
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-aos="fade-up">Our Expert Team</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Meet the professionals behind our success</p>
         </div>
-    </section>
-
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            @foreach($team as $member)
+            <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden text-center p-6 card-hover" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
+                <img src="{{ asset('images/'.$member->photo) }}" alt="{{ $member->name }}" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+                <h3 class="text-2xl font-bold text-gray-900">{{ $member->name }}</h3>
+                <p class="text-primary font-medium mb-2">{{ $member->role }}</p>
+                <p class="text-gray-600">{{ $member->bio }}</p>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+    
     <!-- Portfolio Section -->
-    <section id="portfolio" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-aos="fade-up">Our Portfolio</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                    Explore our projects across various domains
-                </p>
-            </div>
-
-            <div class="flex justify-center mb-12 space-x-4" data-aos="fade-up" data-aos-delay="200">
-                <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-blue-600 transition" data-filter="all">All</button>
-                <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-blue-600 transition" data-filter="web">Web</button>
-                <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-blue-600 transition" data-filter="cyber">Cybersecurity</button>
-                <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-blue-600 transition" data-filter="research">Research</button>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
-                @php
-                    $portfolio = [
-                        ['title'=>'Healthcare Research Portal','desc'=>'A comprehensive research platform for health professionals with data analysis tools.','category'=>'research','icon'=>'fa-laptop-code'],
-                        ['title'=>'Cybersecurity Audit System','desc'=>'A security assessment platform for enterprise vulnerability management.','category'=>'cyber','icon'=>'fa-shield-alt'],
-                        ['title'=>'E-Commerce Solution','desc'=>'A full-featured online store with payment integration and inventory management.','category'=>'web','icon'=>'fa-globe'],
-                        ['title'=>'Patient Management System','desc'=>'Web-based system for hospitals to manage patient records.','category'=>'web','icon'=>'fa-notes-medical'],
-                        ['title'=>'Penetration Testing Dashboard','desc'=>'Real-time vulnerability tracking platform for enterprises.','category'=>'cyber','icon'=>'fa-user-shield'],
-                        ['title'=>'Academic Research Tracker','desc'=>'Tool for managing and analyzing academic research data.','category'=>'research','icon'=>'fa-book'],
-                    ];
-                @endphp
-
-                @foreach($portfolio as $item)
-                <div class="portfolio-item bg-white rounded-xl shadow-lg p-6 text-center" data-category="{{ $item['category'] }}" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
-                    <div class="h-48 gradient-bg flex items-center justify-center mb-4 rounded-lg">
-                        <i class="fas {{ $item['icon'] }} text-5xl text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">{{ $item['title'] }}</h3>
-                    <p class="text-gray-600">{{ $item['desc'] }}</p>
-                </div>
-                @endforeach
-            </div>
+<section id="portfolio" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-aos="fade-up">Our Portfolio</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Explore our projects across various domains
+            </p>
         </div>
-    </section>
+
+        <div class="flex justify-center mb-12 space-x-4" data-aos="fade-up" data-aos-delay="200">
+            <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-blue-600 transition" data-filter="all">All</button>
+            <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-blue-600 transition" data-filter="web">Web</button>
+            <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-blue-600 transition" data-filter="cyber">Cybersecurity</button>
+            <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-blue-600 transition" data-filter="research">Research</button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+            @foreach($portfolio as $item)
+            <div class="portfolio-item bg-white rounded-xl shadow-lg p-6 text-center" data-category="{{ $item->category }}" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
+                <div class="h-48 gradient-bg flex items-center justify-center mb-4 rounded-lg">
+                    <i class="fas {{ $item->icon }} text-5xl text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">{{ $item->title }}</h3>
+                <p class="text-gray-600">{{ $item->description }}</p>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</section>
 
     <!-- CTA Section -->
     <section class="py-20 gradient-bg text-white text-center">

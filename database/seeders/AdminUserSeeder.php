@@ -14,13 +14,36 @@ class AdminUserSeeder extends Seeder
      */
     public function run(): void
     {
+        // Add Iddi B. Hemedi as admin
         User::updateOrCreate(
-            ['email' => 'admin@example.com'], // Check if admin already exists
+            ['email' => 'iddihemedi11@gmail.com'],
             [
-                'name' => 'Super Admin',
+                'name' => 'Iddi B. Hemedi',
                 'password' => Hash::make('Admin@12345'), // Strong default password
                 'role' => 'admin',
-                'profile_photo' => 'default_admin.png' // if you have profile photo column
+                'profile_photo' => 'default_admin.png'
+            ]
+        );
+
+        // Add Zin Fai Yang as super admin
+        User::updateOrCreate(
+            ['email' => 'zinfaiyang@gmail.com'],
+            [
+                'name' => 'Zin Fai Yang',
+                'password' => Hash::make('SuperAdmin@12345'), // Strong default password
+                'role' => 'super_admin',
+                'profile_photo' => 'default_admin.png'
+            ]
+        );
+
+        // Keep the original admin user as well
+        User::updateOrCreate(
+            ['email' => 'admin@example.com'],
+            [
+                'name' => 'Super Admin',
+                'password' => Hash::make('Admin@12345'),
+                'role' => 'admin',
+                'profile_photo' => 'default_admin.png'
             ]
         );
     }

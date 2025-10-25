@@ -75,27 +75,44 @@
     @include('layouts.navigation')
 
     <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0">
-            <div class="absolute inset-0 bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-600 animate-gradient-x"></div>
-            <div class="absolute inset-0 bg-black/40"></div>
+<section class="relative h-screen flex flex-col items-center justify-center overflow-hidden text-center px-4 sm:px-6 lg:px-8">
+    <!-- Background Overlay -->
+    <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-600 animate-gradient-x"></div>
+        <div class="absolute inset-0 bg-black/40"></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 max-w-3xl">
+        <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-6">
+            <span id="typed-text"></span>
+        </h1>
+        <p class="text-xl md:text-2xl text-white/90 mb-10">
+            We provide cutting-edge solutions in 
+            <span class="font-semibold">cybersecurity</span>, 
+            <span class="font-semibold">web development</span>, and 
+            <span class="font-semibold">research analysis</span>.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="#services" class="px-8 py-3 bg-white text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition">Our Services</a>
+            <a href="#portfolio" class="px-8 py-3 border-2 border-white text-white font-medium rounded-lg hover:bg-white hover:text-blue-600 transition">View Portfolio</a>
+
+            {{-- Login/Register buttons for guests --}}
+            @guest
+                <a href="{{ route('login') }}" class="px-8 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition">Login</a>
+                <a href="{{ route('register') }}" class="px-8 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition">Register</a>
+            @endguest
         </div>
-        <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8">
-            <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-6">
-                <span id="typed-text"></span>
-            </h1>
-            <p class="text-xl md:text-2xl text-white/90 mb-10">
-                We provide cutting-edge solutions in <span class="font-semibold">cybersecurity</span>, <span class="font-semibold">web development</span>, and <span class="font-semibold">research analysis</span>.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#services" class="px-8 py-3 bg-white text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition">Our Services</a>
-                <a href="#portfolio" class="px-8 py-3 border-2 border-white text-white font-medium rounded-lg hover:bg-white hover:text-blue-600 transition">View Portfolio</a>
-            </div>
-        </div>
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <i class="fas fa-angle-down text-white text-3xl"></i>
-        </div>
-    </section>
+    </div>
+
+    <!-- Scroll Down Icon -->
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <i class="fas fa-angle-down text-white text-3xl"></i>
+    </div>
+</section>
+
 
     <!-- Services Section -->
     <section id="services" class="py-20 bg-gray-50">

@@ -53,7 +53,7 @@
 
         <!-- Top Navbar -->
         <header class="bg-gray-800/70 backdrop-blur-xl border-b border-gray-700 flex items-center justify-between px-4 sm:px-8 py-4 sticky top-0 z-20">
-            <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-4 space-y-5">
                 <!-- Mobile sidebar toggle -->
                 <button onclick="toggleSidebar()" class="md:hidden text-gray-400 hover:text-white focus:outline-none">
                     <i class="fas fa-bars text-xl"></i>

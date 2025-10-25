@@ -75,44 +75,27 @@
     @include('layouts.navigation')
 
     <!-- Hero Section -->
-<section class="relative h-screen flex flex-col items-center justify-center overflow-hidden text-center px-4 sm:px-6 lg:px-8">
-    <!-- Background Overlay -->
-    <div class="absolute inset-0">
-        <div class="absolute inset-0 bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-600 animate-gradient-x"></div>
-        <div class="absolute inset-0 bg-black/40"></div>
-    </div>
-
-    <!-- Hero Content -->
-    <div class="relative z-10 max-w-3xl">
-        <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-6">
-            <span id="typed-text"></span>
-        </h1>
-        <p class="text-xl md:text-2xl text-white/90 mb-10">
-            We provide cutting-edge solutions in 
-            <span class="font-semibold">cybersecurity</span>, 
-            <span class="font-semibold">web development</span>, and 
-            <span class="font-semibold">research analysis</span>.
-        </p>
-
-        <!-- CTA Buttons -->
-        <div class="flex flex-wrap justify-center gap-4">
-            <a href="#services" class="px-8 py-3 bg-white text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition">Our Services</a>
-            <a href="#portfolio" class="px-8 py-3 border-2 border-white text-white font-medium rounded-lg hover:bg-white hover:text-blue-600 transition">View Portfolio</a>
-
-            {{-- Login/Register buttons for guests --}}
-            @guest
-                <a href="{{ route('login') }}" class="px-8 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition">Login</a>
-                <a href="{{ route('register') }}" class="px-8 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition">Register</a>
-            @endguest
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-600 animate-gradient-x"></div>
+            <div class="absolute inset-0 bg-black/40"></div>
         </div>
-    </div>
-
-    <!-- Scroll Down Icon -->
-    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <i class="fas fa-angle-down text-white text-3xl"></i>
-    </div>
-</section>
-
+        <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-6">
+                <span id="typed-text"></span>
+            </h1>
+            <p class="text-xl md:text-2xl text-white/90 mb-10">
+                We provide cutting-edge solutions in <span class="font-semibold">cybersecurity</span>, <span class="font-semibold">web development</span>, and <span class="font-semibold">research analysis</span>.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#services" class="px-8 py-3 bg-white text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition">Our Services</a>
+                <a href="#portfolio" class="px-8 py-3 border-2 border-white text-white font-medium rounded-lg hover:bg-white hover:text-blue-600 transition">View Portfolio</a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-angle-down text-white text-3xl"></i>
+        </div>
+    </section>
 
     <!-- Services Section -->
     <section id="services" class="py-20 bg-gray-50">
@@ -125,68 +108,68 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach($services as $service)
-            <div class="service-card bg-white rounded-xl p-8 shadow-lg text-center" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
-                <div class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center mb-6 mx-auto">
-                     <i class="fas {{ $service->icon }} text-white text-2xl service-icon"></i>
+                <div class="service-card bg-white rounded-xl p-8 shadow-lg text-center" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
+                    <div class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center mb-6 mx-auto">
+                         <i class="fas {{ $service->icon }} text-white text-2xl service-icon"></i>
+                    </div>
+                     <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ $service->title }}</h3>
+                     <p class="text-gray-600 mb-4">{{ $service->description }}</p>
                 </div>
-                 <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ $service->title }}</h3>
-                 <p class="text-gray-600 mb-4">{{ $service->description }}</p>
-            </div>
-            @endforeach
+                @endforeach
             </div>
         </div>
     </section>
 
     <!-- Team Section -->
-<section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-aos="fade-up">Our Expert Team</h2>
-            <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Meet the professionals behind our success</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            @foreach($team as $member)
-            <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden text-center p-6 card-hover" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
-                <img src="{{ asset('images/'.$member->photo) }}" alt="{{ $member->name }}" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
-                <h3 class="text-2xl font-bold text-gray-900">{{ $member->name }}</h3>
-                <p class="text-primary font-medium mb-2">{{ $member->role }}</p>
-                <p class="text-gray-600">{{ $member->bio }}</p>
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-aos="fade-up">Our Expert Team</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">Meet the professionals behind our success</p>
             </div>
-            @endforeach
-        </div>
-    </div>
-</section>
-    
-    <!-- Portfolio Section -->
-<section id="portfolio" class="py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-aos="fade-up">Our Portfolio</h2>
-            <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                Explore our projects across various domains
-            </p>
-        </div>
-
-        <div class="flex justify-center mb-12 space-x-4" data-aos="fade-up" data-aos-delay="200">
-            <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-blue-600 transition" data-filter="all">All</button>
-            <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-blue-600 transition" data-filter="web">Web</button>
-            <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-blue-600 transition" data-filter="cyber">Cybersecurity</button>
-            <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-blue-600 transition" data-filter="research">Research</button>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
-            @foreach($portfolio as $item)
-            <div class="portfolio-item bg-white rounded-xl shadow-lg p-6 text-center" data-category="{{ $item->category }}" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
-                <div class="h-48 gradient-bg flex items-center justify-center mb-4 rounded-lg">
-                    <i class="fas {{ $item->icon }} text-5xl text-white"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                @foreach($team as $member)
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden text-center p-6 card-hover" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
+                    <img src="{{ asset('images/'.$member->photo) }}" alt="{{ $member->name }}" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+                    <h3 class="text-2xl font-bold text-gray-900">{{ $member->name }}</h3>
+                    <p class="text-primary font-medium mb-2">{{ $member->role }}</p>
+                    <p class="text-gray-600">{{ $member->bio }}</p>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">{{ $item->title }}</h3>
-                <p class="text-gray-600">{{ $item->description }}</p>
+                @endforeach
             </div>
-            @endforeach
         </div>
-    </div>
-</section>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-aos="fade-up">Our Portfolio</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    Explore our projects across various domains
+                </p>
+            </div>
+
+            <div class="flex justify-center mb-12 space-x-4" data-aos="fade-up" data-aos-delay="200">
+                <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-blue-600 transition" data-filter="all">All</button>
+                <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-blue-600 transition" data-filter="web">Web</button>
+                <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-blue-600 transition" data-filter="cyber">Cybersecurity</button>
+                <button class="filter-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-blue-600 transition" data-filter="research">Research</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+                @foreach($portfolio as $item)
+                <div class="portfolio-item bg-white rounded-xl shadow-lg p-6 text-center" data-category="{{ $item->category }}" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
+                    <div class="h-48 gradient-bg flex items-center justify-center mb-4 rounded-lg">
+                        <i class="fas {{ $item->icon }} text-5xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">{{ $item->title }}</h3>
+                    <p class="text-gray-600">{{ $item->description }}</p>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
 
     <!-- CTA Section -->
     <section class="py-20 gradient-bg text-white text-center">
@@ -245,7 +228,23 @@
 
 </div>
 
-<!-- Floating CTA Buttons -->
+<!-- Floating Login/Register Buttons (Top Right) -->
+@guest
+<div class="fixed top-11 right-6 flex flex-col space-y-3 z-50 lg:hidden">
+    <a href="{{ route('login') }}" 
+       class="floating-cta bg-blue-600 text-white px-5 py-3 rounded-full shadow-lg transform hover:scale-105 transition flex items-center space-x-2">
+        <i class="fas fa-sign-in-alt"></i>
+        <span>Login</span>
+    </a>
+    <a href="{{ route('register') }}" 
+       class="floating-cta bg-green-600 text-white px-5 py-3 rounded-full shadow-lg transform hover:scale-105 transition flex items-center space-x-2">
+        <i class="fas fa-user-plus"></i>
+        <span>Register</span>
+    </a>
+</div>
+@endguest
+
+<!-- Floating CTA Buttons (Bottom Right) -->
 <div class="fixed bottom-6 right-6 flex flex-col space-y-4 z-50">
     <a href="{{route('contact')}}" class="floating-cta bg-blue-600 text-white px-5 py-3 rounded-full shadow-lg transform hover:scale-105 transition flex items-center space-x-2">
         <i class="fas fa-envelope"></i>
